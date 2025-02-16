@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>Reservation Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .confirmation-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .confirmation-container h1 {
+            color: #333;
+        }
+        .confirmation-container p {
+            color: #666;
+        }
+        .confirmation-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .confirmation-container button:hover {
+            background-color: #b30000;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <h1>Reservation Confirmed</h1>
+        <p>Thank you, <span id="name"></span>!</p>
+        <p>Your reservation for <span id="date"></span> has been confirmed.</p>
+        <button onclick="goBack()">Return</button>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const date = urlParams.get('date');
+
+        // Format the date
+        const formattedDate = new Date(date).toLocaleString('en-US', {
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        // Set the text content of the spans
+        document.getElementById('name').textContent = name;
+        document.getElementById('date').textContent = formattedDate;
+
+        // Function to go back
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
