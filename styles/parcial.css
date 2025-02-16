@@ -163,6 +163,12 @@ button:hover {
     padding: 50px;
     background: #222;
 }
+.burger-options img {
+    width: 100%; /* Que ocupe todo el ancho */
+    height: 200px; /* Tamaño fijo para que no distorsione el diseño */
+    object-fit: cover; /* Recorta la imagen para ajustarla al tamaño */
+    border-radius: 5px;
+}
 
 .burger {
     background: #333;
