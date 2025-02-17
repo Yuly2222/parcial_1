@@ -203,13 +203,12 @@ button:hover {
 
 .story-image {
     max-width: 20%; /* Aumenta el tamaño sin afectar la distribución */
-    flex-shrink: 0;
     position: relative; /* Mantiene la estructura sin afectar otros elementos */
-    transform: scale(1.5); /* Aumenta la escala de la imagen */
+    transform: scale(1.3); /* Aumenta la escala de la imagen */
     margin-right: 200px; /* Separa el título del borde izquierdo */
 }
 .story-text {
-    max-width: 50%; /* Limita el ancho del contenido de texto */
+    max-width: 60%; /* Limita el ancho del contenido de texto */
     text-align: left; /* Alinea el texto a la izquierda */
     display: flex;
     flex-direction: column; /* Apila el contenido verticalmente */
@@ -217,8 +216,15 @@ button:hover {
 }
 
 .story-image img {
-    max-width: 100%; /* Permite que la imagen se adapte dentro del contenedor */
+    max-width: 80%; /* Permite que la imagen se adapte dentro del contenedor */
     height: auto;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
 }
 
 /* Shopping Cart */
@@ -253,7 +259,7 @@ footer {
     max-width: 100%; /* Aumenta el tamaño sin afectar la distribución */
     flex-shrink: 0;
     position: relative; /* Mantiene la estructura sin afectar otros elementos */
-    transform: scale(1); /* Aumenta la escala de la imagen */
+    transform: scale(0.5); /* Aumenta la escala de la imagen */
     margin-right: 90px; /* Separa el título del borde izquierdo */
 }
 
