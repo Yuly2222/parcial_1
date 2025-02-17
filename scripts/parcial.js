@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const li = document.createElement('li');
         li.innerHTML = `
           ${item} - ${cart[item].quantity} x $${cart[item].price}
-          <button class="increase" data-item="${item}">+</button>
+          <br><button class="increase" data-item="${item}">+</button>
           <button class="decrease" data-item="${item}">-</button>
           <button class="remove" data-item="${item}">Remove</button>
         `;
@@ -123,14 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Hide the cart container initially
     cartContainer.style.display = 'none';
-    
     showCartButton.addEventListener('click', () => {
-      cartContainer.style.display = cartContainer.style.display === 'none' || cartContainer.style.display === '' ? 'block' : 'none';
+      if (cartContainer.style.display === 'none' || cartContainer.style.display === '') {
+      cartContainer.style.display = 'block';
+      showCartButton.textContent = '❌';
+      } else {
+      cartContainer.style.display = 'none';
+      showCartButton.textContent = '🛒';
+      }
     });
   
     // Clear Cart Functionality
     const clearCartButton = document.getElementById('clear-cart');
-    clearCartButton.addEventListener('click', () => {
+    clearCartButton.addEventListener('click', (event) => {
+      event.preventDefault(); // Prevent form submission
       for (const item in cart) {
         delete cart[item];
       }

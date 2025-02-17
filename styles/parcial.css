@@ -1,73 +1,73 @@
-/* Emo Rockstar Burger Theme */
-
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;700&display=swap');
 
+/* _______________________Body_______________________ */
 body {
-    background-color: #111;
-    color: #eee;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
+    background-color: #111; /* Cambia el color de fondo */
+    color: #eee; /* Cambia el color del texto */
+    font-family: 'Roboto', sans-serif; /* Cambia la fuente del texto */
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el espacio interno */
+    width: 100%; /* Asegura que el ancho sea del 100% */
+    overflow-x: hidden; /* Evita el scroll horizontal */
 }
 
-/* Header */
+/* _______________________Header_______________________ */
 header {
-    background: linear-gradient(to right, #222, #444);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 3px solid #d00;
+    background: linear-gradient(to right, #222, #444); /* Agrega un degradado */
+    padding: 20px; /* Aumenta el espacio interno */
+    display: flex; /* Crea un flexbox */
+    justify-content: space-between; /* Separa los elementos a los extremos */
+    align-items: center; /* Centra verticalmente */
+    border-bottom: 3px solid #d00; /* Añade un borde inferior */
     position: fixed; /* Hace que el header quede fijo */
     top: 0; /* Lo coloca en la parte superior */
-    left: 0;
+    left: 0; /* Lo coloca en la parte izquierda */
     width: 100%; /* Ocupa todo el ancho */
     z-index: 1000; /* Asegura que esté sobre otros elementos */
 }
 
-nav a {
-    color: #ffbb3e;
-    text-decoration: none;
-    font-size: 1.2em;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: 0.3s;
+/* _______________________nav and anchors_______________________ */
+a {
+    color: #ffbb3e; /* Cambia el color del texto */
+    text-decoration: none; /* Remueve el subrayado */
+    font-size: 1.2em; /* Aumenta el tamaño del texto */
+    margin: 0 15px; /* Añade espacio entre los enlaces */
+    font-weight: bold; /* Aumenta el grosor del texto */
+    transition: 0.3s; /* Agrega una transición */
 }
 
-nav a:hover {
-    color: #E74C3C;
-    text-shadow: 0px 0px 10px #ff0000;
+a:hover {
+    color: #E74C3C; /* Cambia el color al hacer hover */
+    text-shadow: 0px 0px 10px #ff0000;  /* Adds a shadow to the text */
 }
 
 .contact-info {
-    font-size: 1em;
-    color: #ddd;
+    font-size: 1em; /* Aumenta el tamaño del texto */
+    color: #ddd; /* Cambia el color del texto */
     margin-right: 90px; /* Separa el título del borde izquierdo */
 }
 
-/* Landing Section */
+/* _______________________Landing Section_______________________ */
 .Landing {
-    background: linear-gradient(to right, #222, #E74C3C);
-    display: flex;
+    background: linear-gradient(to right, #222, #E74C3C); /* Agrega un degradado */
+    display: flex; /* Permite alinear el contenido */
     justify-content: space-between; /* Separa el contenido a los extremos */
     align-items: center; /* Centra verticalmente */
-    position: relative;
+    position: relative; /* Para posicionar la imagen */
 
 }
 
 .landing-content {
     max-width: 50%; /* Limita el ancho del contenido de texto */
     text-align: left; /* Alinea el texto a la izquierda */
-    display: flex;
+    display: flex; /* Permite alinear el texto y la imagen */
     flex-direction: column; /* Apila el contenido verticalmente */
    
 }
 
 .burger-image {
     max-width: 130%; /* Aumenta el tamaño sin afectar la distribución */
-    flex-shrink: 0;
+    flex-shrink: 0; /* Mantiene el tamaño original */
     position: relative; /* Mantiene la estructura sin afectar otros elementos */
     transform: scale(1.5); /* Aumenta la escala de la imagen */
     margin-right: 90px; /* Separa el título del borde izquierdo */
@@ -78,206 +78,310 @@ nav a:hover {
     height: auto; /* Mantiene la proporción de la imagen */
 }
 
+section {
+    padding: 100px; /* Aumenta el espacio interno */
+}
+
+#highlight {
+    color: #ffa600; /* Cambia el color del texto */
+    padding: 20px; /* Aumenta el espacio interno */
+    border-radius: 10px; /* Añade bordes redondeados */
+    text-align: center; /* Alinea el texto al centro */
+}
+
 h1 {
-    font-family: 'Bangers', cursive;
-    font-size: 4em;
-    color: #ffa600;
-    text-shadow: 3px 3px 10px #000;
-    margin-left: 90px; /* Separa el título del borde izquierdo */
+    font-family: 'Bangers', cursive; /* Cambia la fuente del texto */
+    font-size: 4em; /* Aumenta el tamaño del texto */
+    color: #ffa600; /* Cambia el color del texto */
+    text-shadow: 3px 3px 10px #000; /* Adds a shadow to the text */
 }
 
 p{
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.3em;
-    margin-right: 30px; 
+    font-family: 'Oswald', sans-serif; /* Cambia la fuente del texto */
+    font-size: 1.3em; /* Aumenta el tamaño del texto */
+    margin-right: 30px; /* Separa el texto del borde derecho */
 }
 
 button {
-    font-family: 'Permanent Marker', cursive;
-    background: #181818;
-    color: #ffa600;
-    border: none;
-    padding: 5px 10px;
-    font-size: 0.5em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
+    font-family: 'Permanent Marker', cursive; /* Cambia la fuente del botón */
+    background: #181818; /* Background color */
+    color: #ffa600; /* Text color */
+    border: none; /* Removes the border */
+    padding: 10px 20px; /* Increased padding for bigger buttons */
+    font-size: 1em; /* Increased font size */
+    cursor: pointer; /* Changes the cursor to a pointer */
+    border-radius: 5px; /* Adds rounded corners */
+    transition: 0.3s; /* Adds a transition effect */
     align-self: center; /* Centra el botón horizontalmente */
     margin-top: 30px; /* Añade espacio entre el título y el botón */
-    
-}
-button:hover {
-    background: #E74C3C;
-    transform: scale(1.1);
 }
 
-/* Menu Section */
+/* _______________________Menu Section_______________________ */
 .groups {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px 0;
-    background: url('../imgs/grunge_texture.jpg') repeat;
+    display: flex; /* Crea un flexbox */
+    justify-content: center; /* Centra los cuadros horizontalmente */
+    gap: 20px; /* Espacio entre los cuadros */
+    padding: 50px 0; /* Aumenta el espacio interno */
 }
 
-/* Contenedores de los cuadros */
+/* _______________________Cuadros_______________________ */
 .groups div {
-    background: rgba(34, 34, 34, 0.8);
-    padding: 20px;
-    border: 2px solid #E74C3C;
-    text-align: center;
-    font-size: 1.5em;
-    color: #fff;
-    transition: 0.3s;
-    cursor: pointer;
+    background: rgba(34, 34, 34, 0.8); /* Agrega un color de fondo */
+    padding: 20px; /* Aumenta el espacio interno */
+    border: 2px solid #E74C3C; /* Añade un borde */
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 1.5em; /* Aumenta el tamaño del texto */
+    color: #fff; /* Cambia el color del texto */
+    transition: 0.3s; /* Agrega una transición */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el cuadro */
     flex: 1;  /* Hace que todos los cuadros sean del mismo tamaño */
     min-width: 200px; /* Ajusta el ancho mínimo */
     min-height: 300px; /* Ajusta la altura mínima */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    display: flex; /* Permite alinear el contenido */
+    flex-direction: column; /* Apila el contenido verticalmente */
+    align-items: center; /* Alinea el contenido al centro */
+    justify-content: flex-start; /* Alinea el contenido al inicio */
 }
 
-/* Ajustar imágenes dentro de los cuadros */
 .groups div img {
     width: 100%; /* Que ocupe todo el ancho */
     height: 200px; /* Tamaño fijo para que no distorsione el diseño */
     object-fit: cover; /* Recorta la imagen para ajustarla al tamaño */
-    border-radius: 5px;
+    border-radius: 5px; /* Añade bordes redondeados */
 }
 
 .groups div button {
-    padding: 5px 10px;
-    font-size: 0.8em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
+    padding: 5px 10px; /* Aumenta el espacio interno */
+    font-size: 0.8em; /* Reduce el tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 5px; /* Añade bordes redondeados */
+    transition: 0.3s; /* Agrega una transición */
     margin-top: 20px; /* Espacio entre la imagen y el botón */
 }
 
 .groups div:hover {
-    background: #E74C3C;
-    color: black;
-    transform: scale(1.1);
+    background: #E74C3C; /* Cambia el color al hacer hover */
+    color: black; /* Cambia el color del texto al hacer hover */
+    transform: scale(1.1); /* Aumenta el tamaño al hacer hover */
 }
 
-/* Burger Options */
 .burger-options {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 50px;
-    background: #222;
+    display: grid; /* Crea un grid */
+    grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas iguales */
+    gap: 20px; /* Espacio entre las columnas */
+    padding: 50px; /* Aumenta el espacio interno */
+    background: #222; /* Cambia el color de fondo */
 }
 .burger-options img {
     width: 100%; /* Que ocupe todo el ancho */
     height: 200px; /* Tamaño fijo para que no distorsione el diseño */
     object-fit: cover; /* Recorta la imagen para ajustarla al tamaño */
-    border-radius: 5px;
+    border-radius: 5px; /* Añade bordes redondeados */
 }
 
 .burger {
-    background: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    transition: 0.3s;
-    border: 1px solid #d00;
+    background: #333; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+    padding: 20px; /* Aumenta el espacio interno */
+    text-align: center; /* Alinea el texto al centro */
+    border-radius: 10px; /* Añade bordes redondeados */
+    transition: 0.3s; /* Agrega una transición */
+    border: 1px solid #d00; /* Agrega un borde */
 }
 
 .burger:hover {
-    background: #d00;
-    transform: scale(1.1);
-    color: black;
+    background: #d00; /* Cambia el color al hacer hover */
+    transform: scale(1.1); /* Aumenta el tamaño al hacer hover */
+    color: black; /* Cambia el color del texto al hacer hover */
 }
 
+/* _______________________Our Story_______________________ */
 .story-content {
-    background: linear-gradient(to right, #222, #E74C3C);
-    display: flex;
+    background: linear-gradient(to right, #222, #E74C3C); /* Agrega un degradado */
+    display: flex; /* Permite alinear el contenido */
     justify-content: space-between; /* Separa el contenido a los extremos */
     align-items: center; /* Centra verticalmente */
-    position: relative;   
+    position: relative; /* Para posicionar la imagen */
 }
 
 .story-image {
     max-width: 20%; /* Aumenta el tamaño sin afectar la distribución */
-    position: relative; /* Mantiene la estructura sin afectar otros elementos */
-    transform: scale(1.3); /* Aumenta la escala de la imagen */
-    margin-right: 200px; /* Separa el título del borde izquierdo */
+    position: absolute; /* Mantiene la estructura sin afectar otros elementos */
+    transform: scale(2); /* Aumenta la escala de la imagen */
+    right: 0; /* Mueve la imagen a la derecha */
 }
+
 .story-text {
     max-width: 60%; /* Limita el ancho del contenido de texto */
-    text-align: left; /* Alinea el texto a la izquierda */
-    display: flex;
+    text-align: right; /* Alinea el texto a la derecha */
+    display: flex; /* Permite alinear el texto y la imagen */
     flex-direction: column; /* Apila el contenido verticalmente */
-   
+}
+
+.story-text p {
+    margin-left: 20px; /* Separa el texto de la imagen */
 }
 
 .story-image img {
     max-width: 80%; /* Permite que la imagen se adapte dentro del contenedor */
-    height: auto;
+    margin-top: -3.5rem; /* Ajusta la posición de la imagen */
 }
 
-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
+/* _______________________Reservations_______________________ */
+#reservation {
+    background: #222; /* Cambia el color de fondo */
+    padding: 40px; /* Aumenta el espacio interno */
+    max-width: 600px; /* Limita el ancho máximo */
+    margin: 50px auto; /* Centra el contenedor horizontalmente */
+    border-radius: 10px; /* Añade bordes redondeados */
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5); /* Añade una sombra */
 }
 
-/* Shopping Cart */
+#reservation label {
+    display: block; /* Hace que el label ocupe toda la línea */
+    color: white; /* Cambia el color del texto */
+    font-size: 1.2em; /* Aumenta el tamaño del texto */
+    margin-bottom: 10px; /* Añade espacio debajo del label */
+}
+
+#reservation input {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Aumenta el espacio interno */
+    margin-bottom: 20px; /* Añade espacio debajo del input */
+    border: none; /* Elimina el borde */
+    border-radius: 5px; /* Añade bordes redondeados */
+    font-size: 1em; /* Ajusta el tamaño del texto */
+}
+
+#reservation button {
+    background: #ff0044; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+    border: none; /* Elimina el borde */
+    padding: 12px 25px; /* Aumenta el espacio interno */
+    font-size: 1.2em; /* Aumenta el tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 5px; /* Añade bordes redondeados */
+    transition: 0.3s; /* Agrega una transición */
+    font-weight: bold; /* Aumenta el grosor del texto */
+}
+
+#reservation button:hover {
+    background: #b30033; /* Cambia el color de fondo al hacer hover */
+    transform: scale(1.1); /* Aumenta el tamaño al hacer hover */
+}
+
+/* _______________________Shopping Cart_______________________ */
+#show-cart {
+    background: #b30033; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+    border: none; /* Elimina el borde */
+    padding: 20px 40px; /* Aumenta el espacio interno */
+    font-size: 1.5em; /* Aumenta el tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 50px; /* Añade bordes redondeados */
+    transition: 0.3s; /* Agrega una transición */
+    font-weight: bold; /* Aumenta el grosor del texto */
+    position: fixed; /* Posiciona el botón de forma fija */
+    right: 20px; /* Lo coloca a la derecha */
+    bottom: 20px; /* Lo coloca en la parte inferior */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Añade una sombra */
+}
+
+#show-cart:hover {
+    background: #b30033; /* Cambia el color de fondo al hacer hover */
+    transform: scale(1.1); /* Aumenta el tamaño al hacer hover */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); /* Añade una sombra más grande al hacer hover */
+}
+
+#floating-cart {
+    position: fixed; /* Posiciona el carrito de forma fija */
+    top: 20%; /* Lo coloca en la parte superior */
+    right: 0; /* Lo coloca a la derecha */
+    transform: translateY(-50%); /* Centra verticalmente */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
 #cart-container {
-    background: black;
-    color: white;
-    padding: 20px;
-    border: 2px solid #ff0044;
-    text-align: center;
+    position: fixed; /* Posiciona el contenedor de forma fija */
+    top: 0; /* Lo coloca en la parte superior */
+    right: 20px; /* Lo coloca a la derecha */
+    width: 300px; /* Ajusta el ancho */
+    height: 75vh; /* Ajusta la altura */
+    background: #222; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+    padding: 20px; /* Aumenta el espacio interno */
+    box-shadow: -5px 0px 10px rgba(255, 0, 0, 0.5); /* Añade una sombra */
+    transition: right 0.3s ease-in-out; /* Agrega una transición */
+    overflow-y: auto; /* Permite el scroll vertical */
+    border-radius: 20px; /* Añade bordes redondeados */
 }
 
-/* Footer */
+#cart-container.active {
+    right: 0; /* Muestra el contenedor cuando está activo */
+}
+
+#hid {
+    display: flex; /* Creates a flexbox */
+    flex-direction: row; /* Aligns the buttons horizontally */
+    justify-content: space-between; /* Aligns the buttons to the sides */
+    position: absolute; /* Positions the buttons absolutely */
+    bottom: -10; /* Positions the buttons at the bottom of the container */
+    width: 80%; /* Ensures the buttons take up the full width of the container */
+    background-color: #222; /* Adds a background color to avoid overlap appearance */
+}
+
+#hid button {
+    color: #E74C3C; /* Changes the text color of the button */
+    margin-bottom: 0; /* Removes the margin from the bottom of the button */
+}
+
+button:hover {
+    background: #E74C3C; /* Changes the background color on hover */
+    transform: scale(1.1); /* Increases the size of the button */
+}
+
+/* _______________________Footer_______________________ */
 footer {
-    
     align-items: center; /* Alinea el contenido en el centro verticalmente */
     justify-content: space-between; /* Distribuye el contenido */
-    background-color: #000000;
-    text-align: left;
-    color: #ddd;
-    padding: 40px 20px;
+    background-color: #000000; /* Cambia el color de fondo */
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: #ddd; /* Cambia el color del texto */
+    padding: 40px 20px; /* Aumenta el espacio interno */
     position: relative; /* Para que la imagen absoluta se posicione dentro del footer */
 }
 
 .footer-image {
-    position: absolute;
-    right: 10%; /* Lo coloca al borde derecho */
+    position: absolute; /* Para posicionar la imagen */
+    right: -5%; /* Lo coloca al borde derecho */
     bottom: 0; /* Se alinea con la parte inferior del footer */
     max-width: 300px; /* Ajusta el tamaño */
 }
 
 .footer-image img {
     max-width: 100%; /* Aumenta el tamaño sin afectar la distribución */
-    flex-shrink: 0;
+    flex-shrink: 0; /* Mantiene el tamaño original */
     position: relative; /* Mantiene la estructura sin afectar otros elementos */
-    transform: scale(0.5); /* Aumenta la escala de la imagen */
-    margin-right: 90px; /* Separa el título del borde izquierdo */
+    transform: scale(1); /* Aumenta la escala de la imagen */
+    margin-right: 2rem; /* Separa el título del borde izquierdo */
 }
 
 footer ul {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* Elimina las viñetas */
+    padding: 0; /* Elimina el espacio interno */
 }
 
 footer ul li {
-    display: inline;
-    margin: 0 15px;
+    display: inline; /* Alinea los elementos en línea */
+    margin: 0 15px; /* Añade espacio entre los enlaces */
 }
 
 footer ul li a {
-    color: white;
-    text-decoration: none;
+    color: white; /* Cambia el color del texto */
+    text-decoration: none; /* Remueve el subrayado */
 }
 
 footer ul li a:hover {
-    color: #ff0044;
+    color: #ff0044; /* Cambia el color al hacer hover */
 }

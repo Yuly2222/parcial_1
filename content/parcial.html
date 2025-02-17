@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Burger Farm</title>
+    <title>SMASH n GO</title>
     <!-- CSS and JS -->
     <link rel="stylesheet" href="../styles/parcial.css">
     <script defer src="../scripts/parcial.js"></script>
@@ -20,30 +20,29 @@
 
     <!-- Landing Section -->
     <section class="Landing" id="home">
-        <h1>BURGER <br> Juicy, Fresh and Delicious <br> <button>Order Now!</button></h1>
+        <h1>BURGER <br> Juicy, Fresh and Delicious <br> <button><a href="#menu">Menu</a></button></h1>
         <div class="burger-image"><img src="../imgs/burgerlnd.png" alt="Burger Image"></div>
     </section>
 
-    <!-- Groups Section -->
-    <section class="groups" id="menu">
-        <div class="fast"><img src="../imgs/fries.jpg" alt="Burger Image">
-            <button>Fast</button>
-        </div>
-        <div class="burgers"><img src="../imgs/burger.jpg" alt="Burger Image">
-            <button>Burgers</button>
-        </div>
-        <div class="drinks"><img src="../imgs/drinks.jpg" alt="Burger Image">
-            <button>Drinks</button>
-        </div>
-        <div class="desserts"><img src="../imgs/desserts.jpg" alt="Burger Image">
-            <button>Desserts</button>
-        </div>
-    </section>
-
     <!-- Choose and Enjoy Section -->
-      <section class="choose">
-        <h2>CHOOSE AND ENJOY</h2>
-        <p>Find Your Perfect Burger Match: A Wide Selection of Juicy and Flavorful Options</p>
+      <section class="choose" id="menu">
+        <h1>CHOOSE AND ENJOY</h1>
+        <p>Select the <span id="highlight">category</span> and add your favorite dishes to your next meal!!</p>
+        <!-- Groups Section -->
+        <section class="groups">
+            <div class="fast"><img src="../imgs/fries.jpg" alt="Burger Image">
+                <button>Fast</button>
+            </div>
+            <div class="burgers"><img src="../imgs/burger.jpg" alt="Burger Image">
+                <button>Burgers</button>
+            </div>
+            <div class="drinks"><img src="../imgs/drinks.jpg" alt="Burger Image">
+                <button>Drinks</button>
+            </div>
+            <div class="desserts"><img src="../imgs/desserts.jpg" alt="Burger Image">
+                <button>Desserts</button>
+            </div>
+        </section>
         <div class="burger-options">
             <div class="burger fast" data-name="Fries" data-price="2"><img src="../imgs/fast_imgs/fries.jpg"> <h3>Fries</h3>  <button class="add-to-cart">Order now!</button></div>
             <div class="burger fast" data-name="Onion Rings" data-price="3"><img src="../imgs/fast_imgs/onion-rings.jpg"> <h3>Onion Rings</h3>  <button class="add-to-cart">Order now!</button></div>
@@ -58,7 +57,6 @@
             <div class="burger burgers" data-name="Pork Burger" data-price="6"><img src="../imgs/burger-imgs/pork-burger.jpg"> <h3>Pork Burger</h3> <p>Ingredients List</p> <button class="add-to-cart">Order now!</button></div>
             <div class="burger burgers" data-name="Veggie Burger" data-price="9"><img src="../imgs/burger-imgs/veggie-burger.jpg"><h3>Veggie Burger</h3> <p>Ingredients List</p> <button class="add-to-cart">Order now!</button></div>
             <div class="burger burgers" data-name="Cheese Burger" data-price="10"><img src="../imgs/burger-imgs/cheese-burger.jpg"><h3>Cheese Burger</h3> <p>Ingredients List</p> <button class="add-to-cart">Order now!</button></div>
-
 
             <div class="burger drinks" data-name="Coke" data-price="2"><img src="../imgs/drinks-imgs/coke.jpg"> <h3>Coke</h3> <p>Ingredients List</p> <button class="add-to-cart">Order now!</button></div>
             <div class="burger drinks" data-name="Pepsi" data-price="2"><img src="../imgs/drinks-imgs/pepsi.jpg"><h3>Pepsi</h3> <p>Ingredients List</p> <button class="add-to-cart">Order now!</button></div>
@@ -81,38 +79,40 @@
     <section id="story" class="our-story">
         <h1>OUR STORY</h1> 
         <div class="story-content">
-        <div class="story-text">
-        <p>Our Story Begins With In a small garage where dreams came alive, a group of friends discovered their other passion: 
-            crafting the perfect burger. After a late-night jam session, they whipped up a burger so delicious, it felt like a hit song. Inspired by that 
-            moment, they combined their love for music and food to create Rockstar Burgers....</p>
-        </div>
+            <div class="story-text">
+            <p>Our Story Begins With In a small garage where dreams came alive, a group of friends discovered their other passion: 
+                crafting the perfect burger. After a late-night jam session, they whipped up a burger so delicious, it felt like a hit song. Inspired by that 
+                moment, they combined their love for music and food to create Rockstar Burgers....</p>
+            </div>
         <div class="story-image"> <img src="../imgs/story-image.png"></div>
     </div>
     </section>
 
     <!-- Book Your Table Section -->
-    <form action = "confirmation.html" method="get">
-        <label>Name:</label><input type="text" id="name" name="name">
+    <form id="reservation" action = "confirmation.html" method="get">
+        <h1>Book Your Table</h1>
+        <label>Name:</label><input type="text" id="name" name="name" required>
         <label>Email:</label><input type="email" id="email" name="email">
-        <label>Date:</label><input type="datetime-local" id="date" name="date">
+        <label>Date:</label><input type="datetime-local" id="date" name="date" required>
         <label>Number of Guests:</label><input type="number" id="guests" name="guests">
         <button type="submit" id="action">Submit</button>
     </form>
 
     <!-- Shopping Cart -->
-    <section>
-        <button id="show-cart">Shopping Cart</button>
-        <div id="cart-container">
+    <section id="floating-cart">
+        <div id="cart-container" class="floating-section">
             <h3>Shopping Cart</h3>
             <ul id="cart-list"></ul>
-            <form action="delivery.html" method="get">
+            <form id="hid" action="delivery.html" method="get">
                 <input type="hidden" id="prices" name="prices" value="$45">
+                <button id="clear-cart">Clear Cart</button>
                 <button type="submit" id="action">Submit</button>
             </form>
-            <button id="clear-cart">Clear Cart</button>
         </div>
+    </div>
     </section>
 
+    <button id="show-cart" class="floating-button">🛒</button>
     <!-- Footer -->
     <footer id="footer">
 
