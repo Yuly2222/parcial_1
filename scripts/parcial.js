@@ -227,3 +227,21 @@ function updateCartList() {
         cartList.appendChild(li);
     }
 }
+
+// Precio fijo del delivery
+const deliveryFee = 5; // $5 de delivery
+
+// Función para calcular el precio total del carrito (productos + delivery)
+function calculateTotalPrice() {
+    let total = 0;
+    for (const item in cart) {
+        total += cart[item].price * cart[item].quantity;
+    }
+    return total + deliveryFee; // Sumar el precio del delivery
+}
+
+// Actualizar el valor del campo oculto "prices" antes de enviar el formulario
+document.getElementById('hid').addEventListener('submit', function(event) {
+    const totalPrice = calculateTotalPrice();
+    document.getElementById('prices').value = totalPrice.toFixed(2); // Formatear a 2 decimales
+});
