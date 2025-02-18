@@ -385,3 +385,82 @@ footer ul li a {
 footer ul li a:hover {
     color: #ff0044; /* Cambia el color al hacer hover */
 }
+/* Team Section */
+.team-section {
+    text-align: center;
+    padding: 50px;
+    background: #222;
+    color: white;
+}
+
+.team-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ffa600;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+}
+
+.member {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+}
+
+.member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #ffa600;
+}
+
+.member h3 {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #ffbb3e;
+}
+
+.member p {
+    font-size: 1em;
+    color: #ddd;
+}
+.team-section {
+    text-align: center;
+    padding: 50px;
+    background: #222;
+    color: white;
+    margin-bottom: 50px; /* Espacio debajo de la sección del equipo */
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.member {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+}
+
+/* Ajustar el formulario para que no se superponga */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center; /* Centrar el formulario */
+    margin-top: 50px; /* Espacio extra encima del formulario */
+    padding: 20px;
+}
