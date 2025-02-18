@@ -479,7 +479,29 @@ form {
     margin-top: 50px; /* Espacio extra encima del formulario */
     padding: 20px;
 }
-/* Ajustar los cuadros para que sean cuadrados */
-.member, .burger, .groups div, .team-section .member {
-    border-radius: 0; /* Hace los cuadros completamente cuadrados */
+/* Eliminar bordes redondeados en todos los cuadros */
+.member, 
+.burger, 
+.groups div, 
+.team-section .member, 
+.burger-options .burger, 
+.groups div img, 
+.story-image img {
+    border-radius: 0; /* Hace todo cuadrado */
+}
+/* Eliminar bordes redondeados de todos los elementos relevantes */
+.member, 
+.burger, 
+.groups div, 
+.team-section .member, 
+.burger-options .burger, 
+.groups div img, 
+.story-image img, 
+footer img, 
+.burger img, 
+.burger-options img, 
+.drinks-imgs img, 
+.desserts-imgs img, 
+.burger-imgs img {
+    border-radius: 0 !important; /* Fuerza a que todo sea cuadrado */
 }
