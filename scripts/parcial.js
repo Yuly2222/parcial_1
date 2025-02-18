@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
     // 2. Add-to-Cart Functionality with Item Modification and Summary
-    const cart = {};  // Object to keep track of cart items
+    const cart = {}; // Objeto para almacenar los ítems del carrito
     const cartList = document.getElementById('cart-list');
   
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -166,3 +166,64 @@ document.getElementById("clear-cart").addEventListener("click", function() {
     document.getElementById("cart-list").innerHTML = ""; // Clear all items
     updateCartMessage();
 });
+
+// Función para calcular el precio total del carrito
+function calculateTotalPrice() {
+  let total = 0;
+  for (const item in cart) {
+      total += cart[item].price * cart[item].quantity;
+  }
+  return total;
+}
+
+// Actualizar el valor del campo oculto "prices" antes de enviar el formulario
+document.getElementById('hid').addEventListener('submit', function(event) {
+  const totalPrice = calculateTotalPrice();
+  document.getElementById('prices').value = totalPrice.toFixed(2); // Formatear a 2 decimales
+});
+
+
+const cart = {}; // Objeto para almacenar los ítems del carrito
+
+// Función para calcular el precio total del carrito
+function calculateTotalPrice() {
+    let total = 0;
+    for (const item in cart) {
+        total += cart[item].price * cart[item].quantity;
+    }
+    return total;
+}
+
+// Actualizar el valor del campo oculto "prices" antes de enviar el formulario
+document.getElementById('hid').addEventListener('submit', function(event) {
+    const totalPrice = calculateTotalPrice();
+    document.getElementById('prices').value = totalPrice.toFixed(2); // Formatear a 2 decimales
+});
+
+// Ejemplo de cómo se agregan ítems al carrito
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const burger = button.closest('.burger');
+        const name = burger.getAttribute('data-name');
+        const price = parseFloat(burger.getAttribute('data-price'));
+
+        if (cart[name]) {
+            cart[name].quantity += 1;
+        } else {
+            cart[name] = { price: price, quantity: 1 };
+        }
+        updateCartList(); // Actualizar la lista del carrito
+    });
+});
+
+// Función para actualizar la lista del carrito (opcional)
+function updateCartList() {
+    const cartList = document.getElementById('cart-list');
+    cartList.innerHTML = ''; // Limpiar la lista actual
+
+    for (const item in cart) {
+        const li = document.createElement('li');
+        li.textContent = `${item} - ${cart[item].quantity} x $${cart[item].price}`;
+        cartList.appendChild(li);
+    }
+}

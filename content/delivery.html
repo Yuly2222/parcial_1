@@ -99,7 +99,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const queryParams = getQueryParams();
-            document.getElementById('totalPrice').value = queryParams.totalPrice || "$0";
+            document.getElementById('totalPrice').value = `$${queryParams.totalPrice || "0.00"}`;
 
             const map = L.map('map').setView([51.505, -0.09], 13);
 
