@@ -479,3 +479,7 @@ form {
     margin-top: 50px; /* Espacio extra encima del formulario */
     padding: 20px;
 }
+/* Ajustar los cuadros para que sean cuadrados */
+.member, .burger, .groups div, .team-section .member {
+    border-radius: 0; /* Hace los cuadros completamente cuadrados */
+}
