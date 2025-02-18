@@ -60,41 +60,44 @@ document.addEventListener('DOMContentLoaded', () => {
       cartList.innerHTML = ''; // Clear current list
       let subtotal = 0;
       for (const item in cart) {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          ${item} - ${cart[item].quantity} x $${cart[item].price}
-          <br><button class="increase" data-item="${item}">+</button>
-          <button class="decrease" data-item="${item}">-</button>
-          <button class="remove" data-item="${item}">Remove</button>
-        `;
-        cartList.appendChild(li);
-        subtotal += cart[item].price * cart[item].quantity;
+      const li = document.createElement('li');
+      li.innerHTML = `
+        ${item} - ${cart[item].quantity} x $${cart[item].price}
+        <br><button class="increase" data-item="${item}">+</button>
+        <button class="decrease" data-item="${item}">-</button>
+        <button class="remove" data-item="${item}">Remove</button>
+      `;
+      cartList.appendChild(li);
+      subtotal += cart[item].price * cart[item].quantity;
       }
       
       let summary = document.getElementById('cart-summary');
       // If cart is empty, remove summary element if it exists.
       if (subtotal === 0) {
-        if (summary) {
-          summary.remove();
-        }
-        return;
+      if (summary) {
+        summary.remove();
+      }
+      document.getElementById("empty-cart-message").style.display = "block"; // Show empty cart message
+      return;
       }
       
       const deliveryFee = 5;  // Fixed delivery fee
       const total = subtotal + deliveryFee;
       
       if (!summary) {
-        summary = document.createElement('div');
-        summary.id = 'cart-summary';
-        // Insert summary right after the cart list
-        cartList.insertAdjacentElement('afterend', summary);
+      summary = document.createElement('div');
+      summary.id = 'cart-summary';
+      // Insert summary right after the cart list
+      cartList.insertAdjacentElement('afterend', summary);
       }
       
       summary.innerHTML = `
-        <p>Subtotal: $${subtotal.toFixed(2)}</p>
-        <p>Delivery: $${deliveryFee.toFixed(2)}</p>
-        <p>Total: $${total.toFixed(2)}</p>
+      <p>Subtotal: $${subtotal.toFixed(2)}</p>
+      <p>Delivery: $${deliveryFee.toFixed(2)}</p>
+      <p>Total: $${total.toFixed(2)}</p>
       `;
+
+      document.getElementById("empty-cart-message").style.display = "none"; // Hide empty cart message
     }
   
     // Event delegation for modifying cart items (increase, decrease, remove)
@@ -144,3 +147,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
+  function updateCartMessage() {
+    let cartList = document.getElementById("cart-list");
+    let emptyMessage = document.getElementById("empty-cart-message");
+
+    if (cartList.children.length === 0) {
+        emptyMessage.style.display = "block"; // Show message
+    } else {
+        emptyMessage.style.display = "none"; // Hide message
+    }
+}
+
+// Run on page load
+document.addEventListener("DOMContentLoaded", updateCartMessage);
+
+// Also update when an item is added or removed
+document.getElementById("clear-cart").addEventListener("click", function() {
+    document.getElementById("cart-list").innerHTML = ""; // Clear all items
+    updateCartMessage();
+});

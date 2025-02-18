@@ -27,6 +27,13 @@ header {
 }
 
 /* _______________________nav and anchors_______________________ */
+
+nav {
+    display: flex; /* Crea un flexbox */
+    align-items: center; /* Centra verticalmente */
+
+}
+
 a {
     color: #ffbb3e; /* Cambia el color del texto */
     text-decoration: none; /* Remueve el subrayado */
@@ -38,7 +45,7 @@ a {
 
 a:hover {
     color: #E74C3C; /* Cambia el color al hacer hover */
-    text-shadow: 0px 0px 10px #ff0000;  /* Adds a shadow to the text */
+    text-shadow: 0px 0px 10px #630f05;  /* Adds a shadow to the text */
 }
 
 .contact-info {
@@ -118,9 +125,9 @@ button {
 
 /* _______________________Menu Section_______________________ */
 .groups {
-    display: flex; /* Crea un flexbox */
+    display: grid; /* Crea un flexbox */
     justify-content: center; /* Centra los cuadros horizontalmente */
-    gap: 20px; /* Espacio entre los cuadros */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding: 50px 0; /* Aumenta el espacio interno */
 }
 
@@ -167,7 +174,7 @@ button {
 
 .burger-options {
     display: grid; /* Crea un grid */
-    grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas iguales */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Crea 4 columnas iguales */
     gap: 20px; /* Espacio entre las columnas */
     padding: 50px; /* Aumenta el espacio interno */
     background: #222; /* Cambia el color de fondo */
@@ -190,7 +197,7 @@ button {
 }
 
 .burger:hover {
-    background: #d00; /* Cambia el color al hacer hover */
+    background: #E74C3C; /* Cambia el color al hacer hover */
     transform: scale(1.1); /* Aumenta el tamaño al hacer hover */
     color: black; /* Cambia el color del texto al hacer hover */
 }
@@ -266,7 +273,7 @@ button {
 }
 
 #reservation button:hover {
-    background: #b30033; /* Cambia el color de fondo al hacer hover */
+    background: #630f05; /* Cambia el color de fondo al hacer hover */
     transform: scale(1.1); /* Aumenta el tamaño al hacer hover */
 }
 
@@ -289,7 +296,7 @@ button {
 }
 
 #show-cart:hover {
-    background: #b30033; /* Cambia el color de fondo al hacer hover */
+    background: #630f05; /* Cambia el color de fondo al hacer hover */
     transform: scale(1.1); /* Aumenta el tamaño al hacer hover */
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); /* Añade una sombra más grande al hacer hover */
 }
@@ -337,19 +344,27 @@ button {
 }
 
 button:hover {
-    background: #E74C3C; /* Changes the background color on hover */
+    background: #630f05; /* Changes the background color on hover */
     transform: scale(1.1); /* Increases the size of the button */
+}
+
+#empty-cart-message {
+    color: #ddd;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px;
+    display: none; /* Hidden by default */
 }
 
 /* _______________________Footer_______________________ */
 footer {
     align-items: center; /* Alinea el contenido en el centro verticalmente */
     justify-content: space-between; /* Distribuye el contenido */
-    background-color: #000000; /* Cambia el color de fondo */
     text-align: left; /* Alinea el texto a la izquierda */
     color: #ddd; /* Cambia el color del texto */
     padding: 40px 20px; /* Aumenta el espacio interno */
     position: relative; /* Para que la imagen absoluta se posicione dentro del footer */
+    background-image: url("../imgs/footer-background.jpg"); /* Agrega una imagen de fondo */
 }
 
 .footer-image {
@@ -373,7 +388,7 @@ footer ul {
 }
 
 footer ul li {
-    display: inline; /* Alinea los elementos en línea */
+    display:flex; /* Crea un flexbox */
     margin: 0 15px; /* Añade espacio entre los enlaces */
 }
 
@@ -383,7 +398,7 @@ footer ul li a {
 }
 
 footer ul li a:hover {
-    color: #ff0044; /* Cambia el color al hacer hover */
+    color: #630f05; /* Cambia el color al hacer hover */
 }
 /* Team Section */
 .team-section {
