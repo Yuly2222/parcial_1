@@ -172,6 +172,7 @@ document.getElementById("clear-cart").addEventListener("click", function() {
 document.getElementById('hid').addEventListener('submit', function(event) {
 const totalPrice = calculateTotalPrice();
 document.getElementById('prices').value = totalPrice.toFixed(2); // Formatear a 2 decimales
+document.getElementById('products').value = encodeURIComponent(productsString);
 });
 
 
@@ -186,13 +187,16 @@ document.getElementById('hid').addEventListener('submit', function(event) {
   // Crear una cadena con los productos y sus cantidades
   let products = [];
   for (const item in cart) {
-      products.push(`${item}:${cart[item].quantity}`);
+    products.push(`${encodeURIComponent(item)}:${cart[item].quantity}`);
   }
   const productsString = products.join(',');
 
+    // Actualiza el campo oculto de products
+    document.getElementById('products').value = productsString;
+
   // Agregar los productos y cantidades a la URL correctamente
   const form = document.getElementById('hid');
-  form.action = `delivery.html?prices=${totalPrice.toFixed(2)}&products=${encodeURIComponent(productsString)}`;
+  form.action = `delivery.html?prices=${totalPrice.toFixed(2)}&products=${productsString}`;
   form.submit(); // Envía el formulario manualmente
 });
 

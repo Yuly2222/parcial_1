@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart Checkout</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -96,16 +97,15 @@
                 totalPrice: params.get('prices')
             };
         }
+        
 
-        document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     const queryParams = new URLSearchParams(window.location.search);
     const totalPrice = queryParams.get('prices');
-    const productsString = queryParams.get('products');
-
-    // Mostrar el precio total
     document.getElementById('totalPrice').value = `$${totalPrice || "0.00"}`;
 
     // Mostrar los productos y sus cantidades
+    const productsString = queryParams.get('products');
     if (productsString) {
         const products = productsString.split(',');
         const productsList = document.createElement('div');
