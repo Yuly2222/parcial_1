@@ -36,7 +36,7 @@ groupButtons.forEach(button => {
 });
 
   // 2. Add-to-Cart Functionality with Item Modification and Summary
-  const cart = {}; // Objeto para almacenar los ítems del carrito
+  
   const cartList = document.getElementById('cart-list');
 
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -167,14 +167,6 @@ document.getElementById("clear-cart").addEventListener("click", function() {
   updateCartMessage();
 });
 
-// Función para calcular el precio total del carrito
-function calculateTotalPrice() {
-let total = 0;
-for (const item in cart) {
-    total += cart[item].price * cart[item].quantity;
-}
-return total;
-}
 
 // Actualizar el valor del campo oculto "prices" antes de enviar el formulario
 document.getElementById('hid').addEventListener('submit', function(event) {
@@ -185,36 +177,25 @@ document.getElementById('prices').value = totalPrice.toFixed(2); // Formatear a 
 
 const cart = {}; // Objeto para almacenar los ítems del carrito
 
-// Función para calcular el precio total del carrito
-function calculateTotalPrice() {
-    let total = 0;
-    for (const item in cart) {
-        total += cart[item].price * cart[item].quantity;
-    }
-    return total;
-}
 
-// Actualizar el valor del campo oculto "prices" antes de enviar el formulario
+// Botón del SUBMIT >:((
 document.getElementById('hid').addEventListener('submit', function(event) {
-    const totalPrice = calculateTotalPrice();
-    document.getElementById('prices').value = totalPrice.toFixed(2); // Formatear a 2 decimales
+  const totalPrice = calculateTotalPrice();
+  document.getElementById('prices').value = totalPrice.toFixed(2); // Actualiza el campo oculto
+
+  // Crear una cadena con los productos y sus cantidades
+  let products = [];
+  for (const item in cart) {
+      products.push(`${item}:${cart[item].quantity}`);
+  }
+  const productsString = products.join(',');
+
+  // Agregar los productos y cantidades a la URL correctamente
+  const form = document.getElementById('hid');
+  form.action = `delivery.html?prices=${totalPrice.toFixed(2)}&products=${encodeURIComponent(productsString)}`;
+  form.submit(); // Envía el formulario manualmente
 });
 
-// Ejemplo de cómo se agregan ítems al carrito
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-        const burger = button.closest('.burger');
-        const name = burger.getAttribute('data-name');
-        const price = parseFloat(burger.getAttribute('data-price'));
-
-        if (cart[name]) {
-            cart[name].quantity += 1;
-        } else {
-            cart[name] = { price: price, quantity: 1 };
-        }
-        updateCartList(); // Actualizar la lista del carrito
-    });
-});
 
 // Función para actualizar la lista del carrito (opcional)
 function updateCartList() {
@@ -228,20 +209,13 @@ function updateCartList() {
     }
 }
 
-// Precio fijo del delivery
-const deliveryFee = 5; // $5 de delivery
 
-// Función para calcular el precio total del carrito (productos + delivery)
+// Función para calcular el precio total del carrito
 function calculateTotalPrice() {
-    let total = 0;
-    for (const item in cart) {
-        total += cart[item].price * cart[item].quantity;
-    }
-    return total + deliveryFee; // Sumar el precio del delivery
+  let total = 0;
+  for (const item in cart) {
+      total += cart[item].price * cart[item].quantity;
+  }
+  total += 5.00;
+  return total;
 }
-
-// Actualizar el valor del campo oculto "prices" antes de enviar el formulario
-document.getElementById('hid').addEventListener('submit', function(event) {
-    const totalPrice = calculateTotalPrice();
-    document.getElementById('prices').value = totalPrice.toFixed(2); // Formatear a 2 decimales
-});

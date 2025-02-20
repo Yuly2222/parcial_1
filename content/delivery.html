@@ -98,26 +98,43 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const queryParams = getQueryParams();
-            document.getElementById('totalPrice').value = `$${queryParams.totalPrice || "0.00"}`;
+    const queryParams = new URLSearchParams(window.location.search);
+    const totalPrice = queryParams.get('prices');
+    const productsString = queryParams.get('products');
 
-            const map = L.map('map').setView([51.505, -0.09], 13);
+    // Mostrar el precio total
+    document.getElementById('totalPrice').value = `$${totalPrice || "0.00"}`;
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            let marker;
-
-            map.on('click', function(e) {
-                if (marker) {
-                    marker.setLatLng(e.latlng);
-                } else {
-                    marker = L.marker(e.latlng).addTo(map);
-                }
-                document.getElementById('location').value = `Latitude: ${e.latlng.lat}, Longitude: ${e.latlng.lng}`;
-            });
+    // Mostrar los productos y sus cantidades
+    if (productsString) {
+        const products = productsString.split(',');
+        const productsList = document.createElement('div');
+        productsList.innerHTML = '<h3>Products in Cart:</h3>';
+        products.forEach(product => {
+            const [name, quantity] = product.split(':');
+            const productItem = document.createElement('p');
+            productItem.textContent = `${name} - Quantity: ${quantity}`;
+            productsList.appendChild(productItem);
         });
+        document.querySelector('.container').insertBefore(productsList, document.querySelector('.buttons'));
+    }
+
+    // Configurar el mapa (código existente)
+    const map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    let marker;
+    map.on('click', function(e) {
+        if (marker) {
+            marker.setLatLng(e.latlng);
+        } else {
+            marker = L.marker(e.latlng).addTo(map);
+        }
+        document.getElementById('location').value = `Latitude: ${e.latlng.lat}, Longitude: ${e.latlng.lng}`;
+    });
+});
 
         document.getElementById('checkoutForm').addEventListener('submit', function(event) {
             event.preventDefault();
