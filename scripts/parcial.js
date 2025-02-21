@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Group Filtering Functionality
+  // Filtrado de hamburguesas por grupo
   const groupButtons = document.querySelectorAll('.groups button');
   const burgerItems = document.querySelectorAll('.burger-options .burger');
   
@@ -16,27 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-// Initially hide all burger items
+// Ocultar items de hamburguesas al cargar la página
 burgerItems.forEach(item => {
   item.style.display = 'none';
 });
 
-groupButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const group = button.textContent.toLowerCase();
-    burgerItems.forEach(item => {
-      // Show all items if "all" is selected, otherwise filter by class.
-      if (group === 'all' || item.classList.contains(group)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  });
-});
-
-  // 2. Add-to-Cart Functionality with Item Modification and Summary
-  
+  // Agregar elementos al carrito
   const cartList = document.getElementById('cart-list');
 
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -55,39 +40,39 @@ groupButtons.forEach(button => {
     });
   });
 
-  // Updates the cart list and calculates subtotal & total (with delivery fee)
+  // Actualiza la lista del carrito con precios y cantidades
   function updateCartList() {
     cartList.innerHTML = ''; // Clear current list
     let subtotal = 0;
     for (const item in cart) {
-    const li = document.createElement('li');
+    const li = document.createElement('li'); // Create list item
     li.innerHTML = `
       ${item} - ${cart[item].quantity} x $${cart[item].price}
       <br><button class="increase" data-item="${item}">+</button>
       <button class="decrease" data-item="${item}">-</button>
       <button class="remove" data-item="${item}">Remove</button>
-    `;
+    `; // Agregar botones para aumentar, disminuir y eliminar en el InnerHTML
     cartList.appendChild(li);
     subtotal += cart[item].price * cart[item].quantity;
     }
     
     let summary = document.getElementById('cart-summary');
-    // If cart is empty, remove summary element if it exists.
+    // Si el carrito está vacío, mostrar mensaje de carrito vacío y ocultar resumen
     if (subtotal === 0) {
     if (summary) {
       summary.remove();
     }
-    document.getElementById("empty-cart-message").style.display = "block"; // Show empty cart message
+    document.getElementById("empty-cart-message").style.display = "block";
     return;
     }
     
-    const deliveryFee = 5;  // Fixed delivery fee
-    const total = subtotal + deliveryFee;
+    const deliveryFee = 5;  // Envío fijo de $5
+    const total = subtotal + deliveryFee; // Calcular total
     
+    // Si no existe el resumen, crearlo y agregarlo después de la lista del carrito
     if (!summary) {
     summary = document.createElement('div');
     summary.id = 'cart-summary';
-    // Insert summary right after the cart list
     cartList.insertAdjacentElement('afterend', summary);
     }
     
@@ -95,12 +80,12 @@ groupButtons.forEach(button => {
     <p>Subtotal: $${subtotal.toFixed(2)}</p>
     <p>Delivery: $${deliveryFee.toFixed(2)}</p>
     <p>Total: $${total.toFixed(2)}</p>
-    `;
+    `; // Actualiza el resumen con los precios en el InnerHTML
 
-    document.getElementById("empty-cart-message").style.display = "none"; // Hide empty cart message
+    document.getElementById("empty-cart-message").style.display = "none"; // Oculta el mensaje de Carrito Vacío
   }
 
-  // Event delegation for modifying cart items (increase, decrease, remove)
+  // Propiedades de los botones del carrito (aumentar, disminuir y eliminar)
   cartList.addEventListener('click', (event) => {
     const target = event.target;
     if (target.tagName === 'BUTTON') {
@@ -120,12 +105,12 @@ groupButtons.forEach(button => {
     }
   });
 
-  // 3. Toggle Shopping Cart Display
+  // Boton para mostrar/ocultar el carrito flotante
   const showCartButton = document.getElementById('show-cart');
   const cartContainer = document.getElementById('cart-container');
-  
-  // Hide the cart container initially
-  cartContainer.style.display = 'none';
+  cartContainer.style.display = 'none';// Ocultar el carrito al cargar la página
+
+  // Cambiar el texto del botón y mostrar/ocultar el carrito al hacer clic
   showCartButton.addEventListener('click', () => {
     if (cartContainer.style.display === 'none' || cartContainer.style.display === '') {
     cartContainer.style.display = 'block';
@@ -136,7 +121,7 @@ groupButtons.forEach(button => {
     }
   });
 
-  // Clear Cart Functionality
+  // Eliminar todos los elementos del carrito con clear-cart
   const clearCartButton = document.getElementById('clear-cart');
   clearCartButton.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent form submission
@@ -193,19 +178,6 @@ document.getElementById('hid').addEventListener('submit', function(event) {
    // Redirige a la página de entrega con los parámetros en la URL
    window.location.href = `delivery.html?prices=${totalPrice.toFixed(2)}&products=${productsString}`;
 });
-
-// Función para actualizar la lista del carrito (opcional)
-function updateCartList() {
-    const cartList = document.getElementById('cart-list');
-    cartList.innerHTML = ''; // Limpiar la lista actual
-
-    for (const item in cart) {
-        const li = document.createElement('li');
-        li.textContent = `${item} - ${cart[item].quantity} x $${cart[item].price}`;
-        cartList.appendChild(li);
-    }
-}
-
 
 // Función para calcular el precio total del carrito
 function calculateTotalPrice() {

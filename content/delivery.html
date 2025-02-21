@@ -4,58 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart Checkout</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY" async defer></script>
-   
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group select, .form-group input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        #map {
-            height: 200px;
-            margin-bottom: 15px;
-        }
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-        .buttons button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #007BFF;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .buttons button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <script src="../scripts/delivery.js"></script>
+    <link rel="stylesheet" href="../styles/delivery.css">
 </head>
 <body>
     <div class="container">
@@ -63,8 +13,20 @@
         <form id="checkoutForm" method="get">
             <div class="form-group">
                 <label for="address">Enter Delivery Address:</label>
-                <input type="text" id="address" name="address" placeholder="Street, City, State" required>
+                <input type="text" id="address" name="address" placeholder="Street, City, State">
             </div>
+            
+            <!-- Embedded Google Map -->
+            <iframe id="mapFrame" 
+                width="100%" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15901.86298138753!2d-74.03848212519534!3d4.861342940178558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f87fe9e0c2adb%3A0x52c0dd6318b3944d!2sUniversidad%20de%20la%20Sabana%20Edificio%20B!5e0!3m2!1ses-419!2sco!4v1740150428265!5m2!1ses-419!2sco">
+            </iframe>
+            
             <div class="form-group">
                 <label for="paymentMethod">Select Payment Method:</label>
                 <select id="paymentMethod" name="paymentMethod">
@@ -79,54 +41,9 @@
             </div>
             <div class="buttons">
                 <button type="button" onclick="goBack()">Go Back</button>
-                <button type="submit">Confirm</button>
+                <button type="button" onclick="confirmGoBack()">Confirm</button>
             </div>
         </form>
     </div>
-
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-
-        function getQueryParams() {
-            const params = new URLSearchParams(window.location.search);
-            return {
-                totalPrice: params.get('prices')
-            };
-        }
-        
-
-        document.addEventListener('DOMContentLoaded', function() {
-    const queryParams = new URLSearchParams(window.location.search);
-    const totalPrice = queryParams.get('prices');
-    const productsString = queryParams.get('products');
-
-    // Muestra el precio total
-    document.getElementById('totalPrice').value = `$${totalPrice || "0.00"}`;
-
-    // Muestra los productos y sus cantidades
-    if (productsString) {
-        const products = productsString.split('|');
-        const productsList = document.createElement('div');
-        productsList.innerHTML = '<h3>Products in Cart:</h3>';
-        products.forEach(product => {
-            const [name, quantity] = product.split('=');
-            const decodedName = name.replace(/%20/g, ' '); // Decodifica espacios
-            const productItem = document.createElement('p');
-            productItem.textContent = `${decodedName} - Quantity: ${quantity}`;
-            productsList.appendChild(productItem);
-        });
-        document.querySelector('.container').insertBefore(productsList, document.querySelector('.buttons'));
-    }
-});
-
-
-        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Purchase confirmed! Total Price: ' + document.getElementById('totalPrice').value);
-        });
-    </script>
 </body>
 </html>
