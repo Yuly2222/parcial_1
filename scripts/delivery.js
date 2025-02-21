@@ -15,7 +15,6 @@ function getQueryParams() {
     };
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
 const queryParams = new URLSearchParams(window.location.search);
 const totalPrice = queryParams.get('prices');
@@ -39,7 +38,6 @@ products.forEach(product => {
 document.querySelector('.container').insertBefore(productsList, document.querySelector('.buttons'));
 }
 });
-
 
 document.getElementById('checkoutForm').addEventListener('submit', function(event) {
     event.preventDefault();
