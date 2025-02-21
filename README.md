@@ -67,3 +67,9 @@ El repositorio en GitHub incluirá toda la documentación necesaria, el código 
 Rockstar Burgers es mucho más que un simple sitio web; es una experiencia digital completa que une lo mejor de la innovación tecnológica con la pasión por la buena comida. Este proyecto es el resultado del esfuerzo, la creatividad y la dedicación de un equipo comprometido con ofrecer lo mejor a sus usuarios.
 
 *Universidad de La Sabana*
+
+## Integrantes:
+
+- Juan Diego Lemus Rey [0000243911]
+- Juan David Campozano [0000338832]
+- Yuly Dayana Rodriguez [0000305315]
