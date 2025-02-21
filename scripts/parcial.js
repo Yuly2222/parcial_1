@@ -168,38 +168,31 @@ document.getElementById("clear-cart").addEventListener("click", function() {
 });
 
 
-// Actualizar el valor del campo oculto "prices" antes de enviar el formulario
-document.getElementById('hid').addEventListener('submit', function(event) {
-const totalPrice = calculateTotalPrice();
-document.getElementById('prices').value = totalPrice.toFixed(2); // Formatear a 2 decimales
-document.getElementById('products').value = encodeURIComponent(productsString);
-});
-
 
 const cart = {}; // Objeto para almacenar los ítems del carrito
 
 
 // Botón del SUBMIT >:((
 document.getElementById('hid').addEventListener('submit', function(event) {
+  
   const totalPrice = calculateTotalPrice();
   document.getElementById('prices').value = totalPrice.toFixed(2); // Actualiza el campo oculto
 
   // Crear una cadena con los productos y sus cantidades
-  let products = [];
-  for (const item in cart) {
-    products.push(`${encodeURIComponent(item)}:${cart[item].quantity}`);
-  }
-  const productsString = products.join(',');
+   let products = [];
+   for (const item in cart) {
+       const name = encodeURIComponent(item); // Codifica el nombre del producto
+       const quantity = cart[item].quantity;
+       products.push(`${name}=${quantity}`);
+   }
+   const productsString = products.join('|'); // Usa '|' como separador seguro
 
-    // Actualiza el campo oculto de products
-    document.getElementById('products').value = productsString;
+   // Actualiza el campo oculto de products
+   document.getElementById('products').value = productsString;
 
-  // Agregar los productos y cantidades a la URL correctamente
-  const form = document.getElementById('hid');
-  form.action = `delivery.html?prices=${totalPrice.toFixed(2)}&products=${productsString}`;
-  form.submit(); // Envía el formulario manualmente
+   // Redirige a la página de entrega con los parámetros en la URL
+   window.location.href = `delivery.html?prices=${totalPrice.toFixed(2)}&products=${productsString}`;
 });
-
 
 // Función para actualizar la lista del carrito (opcional)
 function updateCartList() {
