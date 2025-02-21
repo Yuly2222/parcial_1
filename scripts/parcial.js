@@ -171,6 +171,15 @@ document.getElementById("clear-cart").addEventListener("click", function() {
 
 const cart = {}; // Objeto para almacenar los ítems del carrito
 
+// Función para calcular el precio total del carrito
+function calculateTotalPrice() {
+  let total = 0;
+  for (const item in cart) {
+      total += cart[item].price * cart[item].quantity;
+  }
+  total += 5.00;
+  return total;
+}
 
 // Botón del SUBMIT >:((
 document.getElementById('hid').addEventListener('submit', function(event) {
@@ -194,25 +203,36 @@ document.getElementById('hid').addEventListener('submit', function(event) {
    window.location.href = `delivery.html?prices=${totalPrice.toFixed(2)}&products=${productsString}`;
 });
 
-// Función para actualizar la lista del carrito (opcional)
-function updateCartList() {
-    const cartList = document.getElementById('cart-list');
-    cartList.innerHTML = ''; // Limpiar la lista actual
+document.addEventListener('DOMContentLoaded', function() {
+  const queryParams = new URLSearchParams(window.location.search);
+  const totalPrice = queryParams.get('prices'); // Obtén el total de la URL
+  const productsString = queryParams.get('products');
 
-    for (const item in cart) {
-        const li = document.createElement('li');
-        li.textContent = `${item} - ${cart[item].quantity} x $${cart[item].price}`;
-        cartList.appendChild(li);
-    }
-}
-
-
-// Función para calcular el precio total del carrito
-function calculateTotalPrice() {
-  let total = 0;
-  for (const item in cart) {
-      total += cart[item].price * cart[item].quantity;
+  // Muestra el precio total en el campo totalPrice
+  if (totalPrice) {
+    document.getElementById('totalPrice').value = totalPrice;
+  } else {
+    document.getElementById('totalPrice').value = "0.00"; // Valor por defecto si no hay total
   }
-  total += 5.00;
-  return total;
+
+  // Muestra los productos y sus cantidades
+  if (productsString) {
+      const products = productsString.split('|');
+      const productsList = document.createElement('div');
+      productsList.innerHTML = '<h3>Products in Cart:</h3>';
+      products.forEach(product => {
+          const [name, quantity] = product.split('=');
+          const decodedName = name.replace(/%20/g, ' '); // Decodifica espacios
+          const productItem = document.createElement('p');
+          productItem.textContent = `${decodedName} - Quantity: ${quantity}`;
+          productsList.appendChild(productItem);
+      });
+      document.querySelector('.container').insertBefore(productsList, document.querySelector('.buttons'));
+  }
+});
+
+function goBack() {
+  window.history.back();
 }
+
+  
