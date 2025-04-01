@@ -483,3 +483,9 @@ form {
 *:not(button) {
     border-radius: 0 !important; /* Fuerza a que todo sea cuadrado */
 }
+#cart-list {
+    max-height: 250px; /* ajusta si necesitas más o menos espacio */
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-right: 10px;
+}
