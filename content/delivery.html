@@ -10,6 +10,25 @@
 <body>
     <div class="container">
         <h2>Checkout</h2>
+
+        <!-- Carrito de compras -->
+        <div id="shoppingCart" class="shopping-cart">
+            <h3>Your Shopping Cart</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
+                </tbody>
+            </table>
+            <p id="cartTotal" class="cart-total">Total: $0.00</p>
+        </div>
+
         <form id="checkoutForm" method="get">
             <div class="form-group">
                 <label for="address">Enter Delivery Address:</label>
@@ -54,5 +73,29 @@
             </div>
         </form>
     </div>
+
+    <script>
+        // Cargar los datos del carrito desde localStorage
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartTableBody = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+
+        let total = 0;
+        cartItems.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.product}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.price.toFixed(2)}</td>
+            `;
+            cartTableBody.appendChild(row);
+            total += item.quantity * item.price;
+        });
+
+        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+
+        // Actualizar el campo de precio total en el formulario
+        document.getElementById('totalPrice').value = `$${total.toFixed(2)}`;
+    </script>
 </body>
 </html>

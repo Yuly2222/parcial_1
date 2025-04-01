@@ -175,6 +175,13 @@ document.getElementById('hid').addEventListener('submit', function(event) {
    // Actualiza el campo oculto de products
    document.getElementById('products').value = productsString;
 
+   // Guardar los datos del carrito en localStorage
+   const cartItems = [];
+   for (const item in cart) {
+       cartItems.push({ product: item, quantity: cart[item].quantity, price: cart[item].price });
+   }
+   localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
    // Redirige a la página de entrega con los parámetros en la URL
    window.location.href = `delivery.html?prices=${totalPrice.toFixed(2)}&products=${productsString}`;
 });
