@@ -43,3 +43,8 @@ document.getElementById('checkoutForm').addEventListener('submit', function(even
     event.preventDefault();
     alert('Purchase confirmed! Total Price: ' + document.getElementById('totalPrice').value);
 });
+
+document.getElementById('goBackButton').addEventListener('click', function() {
+    confirmGoBack();
+});
+
