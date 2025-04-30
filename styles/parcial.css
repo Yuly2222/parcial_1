@@ -14,7 +14,7 @@ body {
 /* _______________________Header_______________________ */
 header {
     background: linear-gradient(to right, #222, #444); /* Agrega un degradado */
-    padding: 20px; /* Aumenta el espacio interno */
+    padding: 30px; /* Aumenta el espacio interno */
     display: flex; /* Crea un flexbox */
     justify-content: space-between; /* Separa los elementos a los extremos */
     align-items: center; /* Centra verticalmente */
@@ -24,6 +24,7 @@ header {
     left: 0; /* Lo coloca en la parte izquierda */
     width: 100%; /* Ocupa todo el ancho */
     z-index: 1000; /* Asegura que esté sobre otros elementos */
+    font-size: 1.2em; /* Aumenta el tamaño del texto */
 }
 
 /* _______________________nav and anchors_______________________ */
@@ -61,6 +62,8 @@ a:hover {
     justify-content: space-between; /* Separa el contenido a los extremos */
     align-items: center; /* Centra verticalmente */
     position: relative; /* Para posicionar la imagen */
+    max-height: 70%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Añade una sombra para resaltar */
 
 }
 
