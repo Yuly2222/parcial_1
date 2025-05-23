@@ -4,20 +4,17 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #f4f4f4;
-    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
 }
-
 .container {
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
-    margin-top: 20px; /* Añade un margen superior para que no esté centrado verticalmente */
-    margin-bottom: 20px; /* Añade un margen inferior para evitar que quede pegado al borde */
 }
-
 .form-group {
     margin-bottom: 15px;
 }
